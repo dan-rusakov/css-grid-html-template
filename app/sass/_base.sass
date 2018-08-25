@@ -15,6 +15,15 @@ body
 	overflow-x: hidden
 	opacity: 1
 
+@function em($pixels, $context: 16px) 
+  @return #{$pixels/$context}em
+
+@function rem($pixels, $context: 16px) 
+  @return #{$pixels/$context}rem
+
+button, a
+	outline: none !important
+
 .img-responsive
 	display: block
 	max-width: 100%
