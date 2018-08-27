@@ -63,7 +63,7 @@ gulp.task('compress', function() {
   .pipe(gulp.dest('dist/img'))
 });
 
-gulp.task('build', ['clean', 'compress', 'styles', 'js'], function() {
+gulp.task('build', ['clean', 'compress', 'sass', 'js'], function() {
   var buildCss = gulp.src('app/css/main.min.css')
   .pipe(gulp.dest('dist/css'));
 
