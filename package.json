@@ -1,12 +1,12 @@
 {
-  "name": "simple-gulp-start",
-  "version": "1.0.0",
-  "description": "Simple Gulp Start Template (Sass, Browsersync, Uglify, cleanCSS, Autoprefixer)",
+  "name": "css-grid-html-template",
+  "version": "2.0.0",
+  "description": "Simple css grid Start Template (Sass, Browsersync, Uglify, cleanCSS, Autoprefixer, imageMin)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "WebDesign-Master.ru",
+  "author": "dan3439",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.26.3",
@@ -19,6 +19,7 @@
     "gulp-notify": "^3.2.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
-    "gulp-uglify": "^3.0.1"
+    "gulp-uglify": "^3.0.1",
+    "gulp-util": "^3.0.8"
   }
 }
