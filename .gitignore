@@ -1,6 +1,7 @@
 /node_modules/
 /.git/
 /app/css/
+/app/icons/.gitkeep/
 /**/Thumbs.db
 /**/package-lock.json
 /**/.DS_Store
