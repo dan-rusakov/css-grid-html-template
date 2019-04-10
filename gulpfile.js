@@ -9,7 +9,11 @@ var gulp           = require('gulp'),
 		autoprefixer   = require('gulp-autoprefixer'),
 		notify         = require("gulp-notify"),
 		imagemin      = require('gulp-imagemin'),
-		del           = require('del');
+		del           = require('del'),
+		iconfont = require('gulp-iconfont'),
+		iconfontCss = require('gulp-iconfont-css'),
+		runTimestamp = Math.round(Date.now()/1000),
+    fontName = 'Icons';
 
 gulp.task('browser-sync', function() {
 	browserSync({
@@ -44,10 +48,29 @@ gulp.task('sass', function() {
 	.pipe(browserSync.stream());
 });
 
+gulp.task('iconfont', function(){
+  return gulp.src(['app/icons/*.svg'])
+	.pipe(iconfontCss({
+		path: 'app/sass/_icons_template.sass',
+		fontName: fontName,
+		targetPath: '../sass/_icons.sass',
+		fontPath: '../fonts/'
+	}))
+	.pipe(iconfont({
+		fontName: fontName,
+		prependUnicode: true,
+		fontHeight: 1000,
+		normalize: true, 
+		timestamp: runTimestamp
+	}))
+	.pipe(gulp.dest('app/fonts/'));
+});
+
 gulp.task('watch', function() {
 	gulp.watch('app/sass/**/*.sass', gulp.parallel('sass'));
 	gulp.watch(['libs/**/*.js', 'app/js/common.js'], gulp.parallel('js'));
 	gulp.watch('app/*.html').on('change', browserSync.reload);
+	gulp.watch('app/icons/*.svg', gulp.parallel('iconfont'));
 });
 
 gulp.task('default', gulp.parallel('sass', 'js', 'browser-sync', 'watch'));
